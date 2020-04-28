@@ -3,7 +3,7 @@ var Ball = function () {
     this.x = width/2;
     this.y = 500;
     this.r = 20;
-    this.dx = 5;
+    this.dx = 3;
     this.dy = 5;
 }
 Ball.prototype.update = function () {
@@ -13,8 +13,7 @@ Ball.prototype.update = function () {
 Ball.prototype.checkEdges = function (p) {
   if (this.x > width - this.r/2 || this.x < this.r/2) {
     this.dx = -this.dx;
-  }
-  if (this.y > height - this.r/2 || this.y < this.r/2) {
+  } else if (this.y < this.r/2) {
     this.dy = -this.dy;
   }
  }
@@ -24,7 +23,7 @@ Ball.prototype.checkEdges = function (p) {
    ellipse(this.x, this.y, this.r, this.r);
  }
  Ball.prototype.intersect = function (p) {
-   return (this.x + this.r/2 > p.x - p.width/2 && this.x - this.r/2 < p.x + p.width && this.y + this.r/2 > p.y - p.height/2);
+   return (this.x + this.r/2 > p.x - p.width/2 && this.x - this.r/2 < p.x + p.width/2 && this.y + this.r/2 > p.y - p.height/2 && this.y - this.r/2 < p.y + p.height/2);
  }
 
 // Paddle Constructor
@@ -41,7 +40,6 @@ Paddle.prototype.update = function (dir) {
   } else if (this.x < this.width/2)  {
     this.x = this.width/2;
   }
-
   this.x += dir;
 }
 Paddle.prototype.show = function () {
@@ -56,7 +54,6 @@ var Brick = function (x, y) {
   this.y = y;
   this.width = 80;
   this.height = 20;
-  this.status = true;
   this.img = brickImg;
 }
 Brick.prototype.show = function () {
