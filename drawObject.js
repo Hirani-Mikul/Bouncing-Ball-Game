@@ -13,6 +13,9 @@ let drawBall = function () {
     ball.dy = -ball.dy;
     ball.y = 500;
     ball.x = width/2;
+    if (score >= 5) {
+      score-= 5;
+    }
   }
 }
 
@@ -50,6 +53,7 @@ let buildLevel = function (level) {
         let x = j * 120 + 60;
         let y = i * 50 + 70;
         bricks.push(new Brick(x, y));
+        minScore = bricks.length;
       }
     }
   }
@@ -63,7 +67,7 @@ var renderScoreAndLive = function () {
   lives = constrain(lives, 0, 3);
   text("Score: " + score, 10, 25);
   text("Lives: " + lives, 450, 25);
-  if (!bricks.length && score > 150) {
-    alert("You Win");
+  if (!bricks.length && score >= minScore * 7) {
+    //console.log("You Win!!");
   }
 }

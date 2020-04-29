@@ -1,6 +1,14 @@
-let brickImg;
-let ball, paddle, bricks;
-let col = 5;
-let row = 4;
-let lives = 3;
-let score = 0;
+let brickImg, ballImg, ballImg2; // Images
+let ball, paddle, bricks; // Variables For The Objects In The Game
+let col = 5; // Number Of Columns For Bricks
+let row = 4; // Number Of Row For Bricks
+let lives = 3; // Lives For Player
+let score = 0; // Score For Tracking User Performance
+let minScore; // For Performing Win Check
+let currentScene = 1;
+let btn1, btn2, btn3; // All Buttons
+let angle = 0; // Angle For Spinnig The Ball
+let x = 300; // X Position Of The Ball On The HomeScreen
+let y = 300; // Y Position Of The Ball On The HomeScreen
+let dx = 4; // Velocity Of The Ball Horizonatal Direction
+let dy = 6; // Velocity Of The Ball Vertical Direction

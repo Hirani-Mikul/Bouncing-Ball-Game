@@ -1,15 +1,18 @@
 function preload () {
   brickImg = loadImage("Images/bricks.png");
+  ballImg = loadImage("Images/foot.png");
+  ballImg2 = loadImage("Images/foot2.png");
 }
 function setup() {
   createCanvas(600, 600);
-  startGame();
+  //startGame();
+  createButton();
 }
 
 let startGame = function () {
   ball = new Ball();
   paddle = new Paddle();
-  buildLevel(level1);
+  buildLevel(level2);
 }
 
 let drawGame = function () {
@@ -20,6 +23,10 @@ let drawGame = function () {
 
 }
 function draw() {
-  background(100);
-  drawGame();
+  //background(100);
+  //drawGame();
+  scene1();
+}
+function mousePressed () {
+  buttonsAction();
 }
