@@ -5,8 +5,8 @@ function preload () {
 }
 function setup() {
   createCanvas(600, 600);
-  //startGame();
-  createButton();
+  startGame();
+  createButtons();
 }
 
 let startGame = function () {
@@ -22,11 +22,17 @@ let drawGame = function () {
   renderScoreAndLive();
 
 }
+//scene1();
 function draw() {
-  //background(100);
-  //drawGame();
-  scene1();
+  if (currentScene === 1) {
+    scene1();
+  } else if (currentScene === 2) {
+    scene2();
+  }
+//scene1();
 }
 function mousePressed () {
-  buttonsAction();
+  if (currentScene === 1) {
+    buttonsAction();
+  }
 }

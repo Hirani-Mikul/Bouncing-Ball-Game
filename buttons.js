@@ -1,16 +1,16 @@
-let createButton = function () {
+let createButtons = function () {
   // Play Button
   btn1 = new Button ({
     x: 300,
     y: 440,
-    label: "Play",
+    label: "🅿🅻🅰🆈",
     width: 180,
-    height: 35,
+    height: 45,
     txtSize: 30,
     col: color(255, 10, 50, 255),
     col2: color(0, 255, 0, 100),
     onClick: function () {
-      console.log("Clicked");
+      currentScene = 2;
     }
   });
 

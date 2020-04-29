@@ -63,6 +63,8 @@ let buildLevel = function (level) {
 
 var renderScoreAndLive = function () {
   fill(0, 255, 255);
+  noStroke();
+  textAlign(LEFT, CENTER);
   textSize(25);
   lives = constrain(lives, 0, 3);
   text("Score: " + score, 10, 25);
