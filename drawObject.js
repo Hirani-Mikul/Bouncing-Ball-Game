@@ -64,12 +64,15 @@ let buildLevel = function (level) {
 var renderScoreAndLive = function () {
   fill(0, 255, 255);
   noStroke();
+  textFont("gabriola", 30);
   textAlign(LEFT, CENTER);
-  textSize(25);
   lives = constrain(lives, 0, 3);
   text("Score: " + score, 10, 25);
   text("Lives: " + lives, 450, 25);
-  if (!bricks.length && score >= minScore * 7) {
-    //console.log("You Win!!");
+}
+let calculateWinningState = function () {
+  if (isOver && score >= minScore * 7) {
+    currentScene = 4;
+
   }
 }

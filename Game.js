@@ -78,6 +78,7 @@ let Button = function (config) {
   this.txtSize = config.txtSize;
   this.col = config.col || color(0, 0, 0);
   this.col2 = config.col2 || color(0, 255, 0, 100);
+  this.strokeCol = config.strokeCol || color(0, 255, 255);
 }
 Button.prototype.isInside = function (mx, my) {
   return (mx > this.x - this.width/2 && mx < this.x + this.width/2 && my > this.y - this.height/2 && my < this.y + this.height/2);
@@ -87,7 +88,9 @@ Button.prototype.onClickHandler = function () {
     this.onClick();
   }
 }
-Button.prototype.show = function () {
+Button.prototype.show = function (x, y) {
+  this.x = x;
+  this.y = y;
   rectMode(CENTER);
   strokeWeight(2);
   stroke(255, 255, 0);
@@ -95,7 +98,7 @@ Button.prototype.show = function () {
   rect(this.x, this.y, this.width, this.height, 10);
   textAlign(CENTER, CENTER);
   strokeWeight(1);
-  stroke(0, 255, 255);
+  stroke(this.strokeCol);
   textSize(this.txtSize);
   fill(this.col);
   text(this.label, this.x + this.leftOffset, this.y + this.topOffset);

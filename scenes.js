@@ -38,12 +38,86 @@ let scene1 = function () {
   spinningBall();
   drawButtons();
   textScreen1();
+  if (currentScene === 3) {
+    helpScene();
+  }
 }
 let scene2 = function () {
   currentScene = 2;
+  isStart = true;
   background(100);
   drawGame();
+  if (!bricks.length) {
+    clear();
+    isOver = true;
+    isLevelFinished = true;
+}
+
 }
 let winScene = function () {
-  background(100);
+  currentScene = 4;
+  background(0, 100, 0, 5);
+  fill(255, 100, 100);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textFont("gabriola", 100);
+  text("Congratulation", 300, 60);
+  text("You Win", 300, 160);
+  fill(0, 255, 255);
+  textFont("ink free", 50);
+  text("Your Score Is:  " + score, 300, 260);
+  //text(score, 300, 350);
+  imageMode(CENTER);
+  image(imgwin, 300, 450, 300, 300);
+  btn6.show(480, 400);
+  btn5.show(480, 450);
+}
+let loseScene = function () {
+  currentScene = 5;
+  background(100, 0, 0, 2);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  fill(0, 255, 200, 5);
+  textSize(100);
+  text(":(", 300, 60);
+  textSize(70);
+  text("[̲̅S][̲̅o][̲̅r][̲̅r][̲̅y][̲̅!][̲̅!][̲̅!]", 300, 160);
+  textSize(50);
+  fill(0, 255, 100, 5);
+  text("𝓨𝓸𝓾 𝓛𝓸𝓼𝓽!!", 300, 220);
+  text("☜😲 ＴŕЎ 𝐀𝓰𝐀ĮＮ? ♠♗", 300, 280);
+  imageMode(CENTER);
+  image(imglose, 250, 450);
+  textFont("gabriola", 100);
+  btn7.show(480, 400);
+  btn5.show(480, 450);
+}
+let helpScene = function () {
+  currentScene = 3;
+  imageMode(CENTER);
+  image(canvas, width/2, height/2 + 150);
+  canvas.background(196, 154, 63, 50);
+  canvas.strokeWeight(20);
+  canvas.noFill();
+  canvas.stroke(255, 0, 255, 100);
+  canvas.rect(0, 0, canvas.width, canvas.height, 10);
+  //canvas.textSize(30);
+  canvas.noStroke();
+  canvas.fill(100, 25, 255);
+  canvas.textAlign(CENTER, CENTER);
+  canvas.textFont("ink free", 30);
+  canvas.text("Hello!!", canvas.width/2, 30);
+  canvas.textFont("papyrus", 20);
+  canvas.fill(200, 219, 180);
+  canvas.text("Break All The", canvas.width/2, 90);
+  canvas.text("Bricks To", canvas.width/2, 120);
+  canvas.text("Complete The", canvas.width/2, 150);
+  canvas.text("Levels...", canvas.width/2, 180);
+  canvas.stroke(145, 245, 118, 10);
+  canvas.strokeWeight(10);
+  canvas.line(15, canvas.height/2 + 45, canvas.width - 15, canvas.height/2 + 45);
+  canvas.noStroke();
+  canvas.text("Don't Lose", canvas.width/2, 220);
+  canvas.text("Lives!!!", canvas.width/2, 245);
+  btn4.show(300, 570);
 }
