@@ -46,12 +46,13 @@ let scene2 = function () {
   currentScene = 2;
   isStart = true;
   background(100);
+  //background(backgroundImg);
   drawGame();
-  if (!bricks.length) {
+
+  if (!bricks.length || !lives) {
     clear();
     isOver = true;
-    isLevelFinished = true;
-}
+  }
 
 }
 let winScene = function () {

@@ -70,9 +70,12 @@ var renderScoreAndLive = function () {
   text("Score: " + score, 10, 25);
   text("Lives: " + lives, 450, 25);
 }
-let calculateWinningState = function () {
-  if (isOver && score >= minScore * 7) {
+let calculateWinningAndLosingState = function () {
+  if (isOver && score >= minScore * 7 && lives > 0) {
     currentScene = 4;
+    isLevelFinished = true;
 
+  } else if (isOver) {
+    currentScene = 5;
   }
 }
