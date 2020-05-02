@@ -66,16 +66,16 @@ var renderScoreAndLive = function () {
   noStroke();
   textFont("gabriola", 30);
   textAlign(LEFT, CENTER);
-  lives = constrain(lives, 0, 3);
+  lives = constrain(lives, 0, numOfLives);
   text("Score: " + score, 10, 25);
   text("Lives: " + lives, 450, 25);
 }
 let calculateWinningAndLosingState = function () {
-  if (isOver && score >= minScore * 7 && lives > 0) {
-    currentScene = 4;
-    isLevelFinished = true;
+    if (isOver && score >= minScore * 7 && lives > 0) {
+      currentScene = 4;
+      Levels[currentLevel].isFinished = true;
 
-  } else if (isOver) {
-    currentScene = 5;
-  }
+    } else if (isOver) {
+      currentScene = 5;
+    }
 }

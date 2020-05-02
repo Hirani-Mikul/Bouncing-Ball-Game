@@ -63,14 +63,21 @@ let winScene = function () {
   textAlign(CENTER, CENTER);
   textFont("gabriola", 100);
   text("Congratulation", 300, 60);
-  text("You Win", 300, 160);
+  if (Levels[Levels.length -1].isFinished && currentLevel === Levels.length -1) {
+    textSize(50);
+    text("You Completed All The Levels", 300, 160);
+  } else {
+    text("You Win", 300, 160);
+  }
   fill(0, 255, 255);
   textFont("ink free", 50);
   text("Your Score Is:  " + score, 300, 260);
   //text(score, 300, 350);
   imageMode(CENTER);
   image(imgwin, 300, 450, 300, 300);
-  btn6.show(480, 400);
+  if (currentLevel < Levels.length - 1) {
+    btn6.show(480, 400);
+  }
   btn5.show(480, 450);
 }
 let loseScene = function () {

@@ -60,8 +60,9 @@ let createButtons = function () {
     col2: color(0, 100, 0, 5),
     strokeCol: color(0, 0, 0),
     onClick: function () {
-      restartGame();
-      currentScene = 1;
+      menu();
+
+      //currentScene = 1;
     }
   });
   // Next Level
@@ -74,7 +75,9 @@ let createButtons = function () {
     col2: color(0, 100, 0, 5),
     strokeCol: color(0, 0, 0),
     onClick: function () {
-      console.log("Next Level");
+      //restartLevel();
+      nextLevel();
+      restartLevel();
     }
   });
 
@@ -89,7 +92,7 @@ let createButtons = function () {
     strokeCol: color(0, 0, 0),
     onClick: function () {
       //console.log("Restart");
-      restartGame();
+      restartLevel();
     }
   });
 }
@@ -116,7 +119,9 @@ let buttonsAction = function () {
     btn4.onClickHandler();
   } else if (currentScene === 4) {
     btn5.onClickHandler();
-    btn6.onClickHandler();
+    if (currentLevel < Levels.length - 1) {
+      btn6.onClickHandler();
+    }
   } else if (currentScene === 5) {
     btn5.onClickHandler();
     btn7.onClickHandler();

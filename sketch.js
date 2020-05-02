@@ -14,25 +14,43 @@ function setup() {
   canvas = createGraphics(200, 300);
   canvas.clear();
 }
-let restartGame = function () {
+let menu = function () {
   startGame();
+  resetLivesAndScores();
+  currentScene = 1;
+  isStart = false;
+  isOver = false;
+  isPaused = false;
+}
+let restartLevel = function () {
+  startGame();
+  resetLivesAndScores();
   currentScene = 2;
+}
+let resetLivesAndScores = function () {
   score = 0;
-  lives = 3;
+  lives = numOfLives;
 }
 let startGame = function () {
+  isOver = false;
   isPaused = false;
   ball = new Ball();
   paddle = new Paddle();
   levelManager();
-  isStart = false;
-  isOver = false;
+
+
 }
 let levelManager = function () {
-  buildLevel(level1);
-  // if (isLevelFinished) {
-  //
-  // }
+  if (currentLevel === lastLevel && Levels[lastLevel].isFinished) {
+    currentLevel = 0;
+    Levels[Levels.length -1].isFinished = false;
+  }
+  buildLevel(Levels[currentLevel].data);
+}
+let nextLevel = function () {
+  if (currentLevel < Levels.length - 1 && Levels[currentLevel].isFinished) {
+    currentLevel++;
+  }
 }
 
 let drawGame = function () {
