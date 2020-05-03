@@ -26,16 +26,16 @@ let createButtons = function () {
       currentScene = 3;
     }
   });
-  // About Button
+  // Setting Button
   btn3 = new Button ({
-    label: "About",
+    label: "Settings",
     width: 120,
     height: 35,
     txtSize: 30,
     col: color(20, 41, 227),
     col2: color(18, 143, 196, 100),
     onClick: function () {
-      console.log("About");
+      currentScene = 6;
     }
   });
   // Back Button
@@ -95,6 +95,71 @@ let createButtons = function () {
       restartLevel();
     }
   });
+
+  btn8 = new Button ({
+    label: "Marine",
+    width: 200,
+    height: 50,
+    txtSize: 40,
+    col: color(0, 255, 0),
+    col2: color(0, 0, 255, 50),
+    strokeCol: color(0, 0, 0),
+    onClick: function () {
+      img = img1;
+    }
+  });
+
+  btn9 = new Button ({
+    label: "Water",
+    width: 200,
+    height: 50,
+    txtSize: 50,
+    col: color(20, 0, 255),
+    col2: color(0, 200, 255, 100),
+    strokeCol: color(255, 0, 255, 10),
+    onClick: function () {
+      img = img3;
+    }
+  });
+
+  btn10 = new Button ({
+    label: "Space",
+    width: 200,
+    height: 50,
+    txtSize: 40,
+    col: color(200, 0, 0),
+    col2: color(20, 20, 0),
+    strokeCol: color(0, 0, 255),
+    onClick: function () {
+      img = img2;
+    }
+  });
+
+  btn11 = new Button ({
+    label: "Forest",
+    width: 200,
+    height: 50,
+    txtSize: 40,
+    col: color(200, 0, 0),
+    col2: color(0, 255, 10, 100),
+    strokeCol: color(0, 0, 0),
+    onClick: function () {
+      img = img4;
+    }
+  });
+
+  btn12 = new Button ({
+    label: "Reset",
+    width: 200,
+    height: 50,
+    txtSize: 40,
+    col: color(200, 0, 255),
+    col2: color(50, 0, 0),
+    strokeCol: color(0, 0, 0),
+    onClick: function () {
+      img = undefined;
+    }
+  });
 }
 
 // Draw The Buttons
@@ -125,5 +190,12 @@ let buttonsAction = function () {
   } else if (currentScene === 5) {
     btn5.onClickHandler();
     btn7.onClickHandler();
+  } else if (currentScene === 6) {
+    btn4.onClickHandler();
+    btn8.onClickHandler();
+    btn9.onClickHandler();
+    btn10.onClickHandler();
+    btn11.onClickHandler();
+    btn12.onClickHandler();
   }
 }

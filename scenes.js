@@ -45,8 +45,14 @@ let scene1 = function () {
 let scene2 = function () {
   currentScene = 2;
   isStart = true;
-  background(100);
+  //background(100);
   //background(backgroundImg);
+  if (img === undefined) {
+    background(100);
+  } else {
+    imageMode(CENTER);
+    image(img, 300, 300);
+  }
   drawGame();
 
   if (!bricks.length || !lives) {
@@ -128,4 +134,20 @@ let helpScene = function () {
   canvas.text("Don't Lose", canvas.width/2, 220);
   canvas.text("Lives!!!", canvas.width/2, 245);
   btn4.show(300, 570);
+}
+let settingScene = function () {
+  currentScene = 6;
+  imageMode(CENTER);
+  image(img5, 300, 300);
+  textFont("papyrus", 50);
+  fill(100, 255, 255, 100);
+  text("Change Themes", 300, 50);
+  textFont("ink free");
+  btn8.show(170, 200);
+  btn9.show(430, 200);
+  btn10.show(170, 300);
+  btn11.show(430, 300);
+  btn12.show(300, 400);
+
+  btn4.show(300, 100);
 }

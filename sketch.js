@@ -5,10 +5,16 @@ function preload () {
   ballImg2 = loadImage("Images/foot2.png");
   imglose = loadImage("Images/lose.png");
   imgwin = loadImage("Images/win.png");
-  backgroundImg = loadImage("Images/water.jpg");
+  img1 = loadImage("Images/marine.jpg");
+  img2 = loadImage("Images/space.jpg");
+  img3 = loadImage("Images/water.jpg");
+  img4 = loadImage("Images/landScape.jpg");
+  img5 = loadImage("Images/space3.png");
 }
+let btnbtn;
 function setup() {
-  createCanvas(600, 600);
+  let cnv = createCanvas(600, 600);
+  cnv.position(400, 0, "fixed");
   startGame();
   createButtons();
   canvas = createGraphics(200, 300);
@@ -78,6 +84,8 @@ function draw() {
     winScene();
   } else if (currentScene === 5) {
     loseScene();
+  } else if (currentScene === 6) {
+    settingScene();
   }
 
   if (isPaused) {
@@ -95,6 +103,7 @@ function draw() {
 //scene2();
 //winScene();
 //loseScene();
+//settingScene();
 }
 
 let togglePause = function () {
